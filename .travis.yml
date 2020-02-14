@@ -15,7 +15,8 @@ jobs:
       script: flake8
     - stage: tests
       script:
-      - pytest ./tests
+      - coverage run -m pytest ./tests
+      - coverage report -m
       name: pytest
 
 cache:
