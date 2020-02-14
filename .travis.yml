@@ -5,8 +5,8 @@ dist: xenial
 language: python
 python:
 - 3.8
-services:
-  - docker
+# services:
+#  - docker
 install:
 - pip install -r requirements.txt
 jobs:
@@ -15,7 +15,7 @@ jobs:
       script: flake8
     - stage: tests
       script:
-      - coverage run -m pytest ./tests
+      - coverage run -m pytest
       - coverage report -m
       name: pytest
 
