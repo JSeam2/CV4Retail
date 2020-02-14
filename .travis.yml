@@ -15,7 +15,7 @@ jobs:
       script: flake8
     - stage: tests
       script:
-      - pytest --random-order --cov-config=.coveragerc
+      - pytest ./tests
       name: pytest
 
 cache:
