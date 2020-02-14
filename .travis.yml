@@ -17,6 +17,7 @@ jobs:
       script:
       - coverage run -m pytest
       - coverage report -m
+      - coveralls
       name: pytest
 
 cache:
