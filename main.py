@@ -1,9 +1,11 @@
-from data import preprocess, download
+from data import download
 import argparse
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Computer Vision for Retail and Venues")
+    parser = argparse.ArgumentParser(
+        description="Computer Vision for Retail and Venues"
+    )
 
     subparser = parser.add_subparsers(dest='command')
 
@@ -16,7 +18,8 @@ def main():
         '--dataset',
         required=True,
         type=str,
-        help="Specify the dataset to be downloaded. Available datasets: imdb-crop"
+        help=('Specify the dataset to be downloaded. '
+              'Available datasets: imdb-crop')
     )
     download_parser.add_argument(
         '-o',
@@ -32,7 +35,6 @@ def main():
             download.download_data(args.dataset, args.output_path)
         else:
             download.download_data(args.dataset)
-
 
 
 if __name__ == "__main__":

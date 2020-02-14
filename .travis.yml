@@ -1,0 +1,24 @@
+sudo: true
+os:
+- linux
+dist: xenial
+language: python
+python:
+- 3.8
+services:
+  - docker
+install:
+- pip install -r requirements.txt
+jobs:
+  include:
+    - stage: lint
+      script: flake8
+    - stage: tests
+      script:
+      - pytest --random-order --cov-config=.coveragerc
+      name: pytest
+
+cache:
+  pip: True
+  directories:
+    - $HOME/dependencies
